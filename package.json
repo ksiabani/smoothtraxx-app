@@ -21,5 +21,9 @@
     "ionic-gulp-scripts-copy": "^1.0.0"
   },
   "name": "smoothtraxx-app",
-  "description": "smoothtraxx-app: An Ionic project"
+  "description": "smoothtraxx-app: An Ionic project",
+  "cordovaPlugins": [],
+  "cordovaPlatforms": [
+    "android"
+  ]
 }

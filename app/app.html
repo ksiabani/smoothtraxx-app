@@ -1,16 +1,30 @@
 <ion-menu [content]="content">
 
-  <ion-toolbar>
-    <ion-title>Pages</ion-title>
-  </ion-toolbar>
-
   <ion-content>
     <ion-list>
-      <button ion-item *ngFor="#p of pages" (click)="openPage(p)">
+      <ion-list-header>SMOOTHTRAXX</ion-list-header>
+      <ion-item *ngFor="#p of pages" (click)="openPage(p)">
+        <!--<ion-icon name="{{p.icon}}" item-left></ion-icon>-->
         {{p.title}}
-      </button>
+      </ion-item>
+      <ion-list-header>SETTINGS</ion-list-header>
+      <ion-item>Music Styles</ion-item>
+      <ion-item>Account</ion-item>
+      <ion-item>Help & Feedback</ion-item>
     </ion-list>
   </ion-content>
+
+  <ion-toolbar position="bottom">
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="https://avatars1.githubusercontent.com/u/3550488?v=3&s=460">
+      </ion-avatar>
+      <!--<ion-icon name="contact" item-left></ion-icon>-->
+      <ion-icon name="exit" item-right></ion-icon>
+      <h2>Kostas Siabanis</h2>
+      <p>kostas.siabanis@gmail.com</p>
+    </ion-item>
+  </ion-toolbar>
 
 </ion-menu>
 

@@ -10,3 +10,12 @@
 @import "../pages/hello-ionic/hello-ionic";
 
 @import "../pages/item-details/item-details";
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+  font-family: Helvetica, arial, sans-serif;
+  padding: 40px 0;
+  //font-family: "AvenirNextLTPro-Regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', sans-serif;
+}

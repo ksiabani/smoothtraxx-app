@@ -1,24 +1,49 @@
-
 <ion-navbar *navbar>
   <button menuToggle>
     <ion-icon name="menu"></ion-icon>
   </button>
-  <ion-title>Hello Ionic</ion-title>
+  <ion-title>Radio</ion-title>
 </ion-navbar>
 
 
 <ion-content padding class="getting-started">
 
-  <h3>Welcome to your first Ionic app!</h3>
+  <ion-card>
 
-  <p>
-    This starter project is our way of helping you get a functional app running in record time.
-  </p>
-  <p>
-    Follow along on the tutorial section of the Ionic docs!
-  </p>
-  <p>
-    <button primary menuToggle>Toggle Menu</button>
-  </p>
+    <ion-slides pager>
+
+      <ion-slide>
+        <img src="http://www.beatmyday.com/wp-content/uploads/2012/04/Kings-of-Tomorrow-Show-Me.jpg"/>
+      </ion-slide>
+
+      <ion-slide>
+        <img src="http://www.beatmyday.com/wp-content/uploads/2012/04/Kings-of-Tomorrow-Show-Me.jpg"/>
+      </ion-slide>
+
+      <ion-slide>
+        <img src="http://www.beatmyday.com/wp-content/uploads/2012/04/Kings-of-Tomorrow-Show-Me.jpg"/>
+      </ion-slide>
+
+    </ion-slides>
+
+    <ion-card-content>
+      <ion-card-title>
+        Now playing
+      </ion-card-title>
+      <h3>
+        Show me - Kings of Tomorrow feat Elzi Hall
+      </h3>
+    </ion-card-content>
+
+    <ion-row no-padding>
+
+      <ion-col text-right>
+        <button clear (click)="openModal({charNum: 0})">
+          TUNE IN
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
 
 </ion-content>

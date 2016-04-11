@@ -22,8 +22,9 @@ class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'Radio', component: HelloIonicPage , icon: 'md-radio'},
+      { title: 'My Traxx', component: ListPage, icon: 'musical-note' },
+      { title: 'Go Offline', component: ListPage, icon: 'settings' }
     ];
   }
 
