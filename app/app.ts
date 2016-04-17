@@ -50,7 +50,7 @@ class MyApp {
     nav.setRoot(page.component);
   }
 
-  getStats() {
-    this._radioService.getStats().then(stats => this.stats = stats);
-  }
+  //getStats() {
+  //  this._radioService.getStats().then(stats => this.stats = stats);
+  //}
 }

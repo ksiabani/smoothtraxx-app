@@ -11,6 +11,7 @@ import {RadioService} from '../../services/radio.service';
 })
 export class HelloIonicPage {
   stats: Radio;
+  title: '';
 
   constructor(
       public nav: NavController,
@@ -23,13 +24,18 @@ export class HelloIonicPage {
   }
 
   getStats() {
-    this._radioService.getStats().then(
-        stats => {
-          console.log(stats);
-          return this.stats = stats;
-        }
+    this._radioService.getStats().subscribe(
+        data => {
+          this.stats = data;
+          this.title = data.icestats.source[1].title;
+          console.log(data);
+        },
+        err => console.log(err),
+        () => console.log('Movie Search Complete')
     );
   }
+
+
 
   ngOnInit() {
     this.getStats();
