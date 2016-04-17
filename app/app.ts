@@ -3,20 +3,26 @@ import {StatusBar} from 'ionic-native';
 import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 import {ListPage} from './pages/list/list';
 
+import {Radio} from './services/radio';
+import {RadioService} from './services/radio.service';
+
 
 @App({
   templateUrl: 'build/app.html',
-  config: {} // http://ionicframework.com/docs/v2/api/config/Config/
+  config: {}, // http://ionicframework.com/docs/v2/api/config/Config/
+  providers: [RadioService]
 })
 class MyApp {
   // make HelloIonicPage the root (or first) page
   rootPage: any = HelloIonicPage;
   pages: Array<{title: string, component: any}>;
+  stats: Radio;
 
   constructor(
     private app: IonicApp,
     private platform: Platform,
-    private menu: MenuController
+    private menu: MenuController,
+    private _radioService: RadioService
   ) {
     this.initializeApp();
 
@@ -42,5 +48,9 @@ class MyApp {
     // navigate to the new page if it is not the current page
     let nav = this.app.getComponent('nav');
     nav.setRoot(page.component);
+  }
+
+  getStats() {
+    this._radioService.getStats().then(stats => this.stats = stats);
   }
 }

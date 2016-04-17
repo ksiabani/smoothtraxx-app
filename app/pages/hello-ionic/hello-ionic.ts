@@ -1,15 +1,38 @@
 //import {Page} from 'ionic-angular';
 import {IonicApp, Modal, Platform, NavController, NavParams, Page, ViewController} from 'ionic-angular';
 
+import {Radio} from '../../services/radio';
+import {RadioService} from '../../services/radio.service';
+
+
 @Page({
-  templateUrl: 'build/pages/hello-ionic/hello-ionic.html'
+  templateUrl: 'build/pages/hello-ionic/hello-ionic.html',
+  providers: [RadioService]
 })
 export class HelloIonicPage {
-  constructor(public nav: NavController) { }
+  stats: Radio;
+
+  constructor(
+      public nav: NavController,
+      private _radioService: RadioService
+  ) {}
 
   openModal(characterNum) {
     let modal = Modal.create(ModalsContentPage, characterNum);
     this.nav.present(modal);
+  }
+
+  getStats() {
+    this._radioService.getStats().then(
+        stats => {
+          console.log(stats);
+          return this.stats = stats;
+        }
+    );
+  }
+
+  ngOnInit() {
+    this.getStats();
   }
 }
 
