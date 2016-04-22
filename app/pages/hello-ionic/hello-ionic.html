@@ -13,7 +13,7 @@
     <ion-slides pager>
 
       <ion-slide>
-        <img src="http://www.beatmyday.com/wp-content/uploads/2012/04/Kings-of-Tomorrow-Show-Me.jpg"/>
+        <img [src]="coverUrl"/>
       </ion-slide>
 
       <ion-slide>
@@ -31,7 +31,7 @@
         Now playing
       </ion-card-title>
       <h3>
-        {{title}}
+        {{artist}} - {{title}}
       </h3>
     </ion-card-content>
 
@@ -45,5 +45,7 @@
     </ion-row>
 
   </ion-card>
+
+  {{data}}
 
 </ion-content>

@@ -1,8 +1,11 @@
 import {App, IonicApp, Platform, MenuController} from 'ionic-angular';
+import {Http} from 'angular2/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
+import {Headers, RequestOptions} from 'angular2/http';
 import {StatusBar} from 'ionic-native';
 import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 import {ListPage} from './pages/list/list';
-
 import {Radio} from './services/radio';
 import {RadioService} from './services/radio.service';
 
@@ -22,6 +25,7 @@ class MyApp {
     private app: IonicApp,
     private platform: Platform,
     private menu: MenuController,
+    public http: Http,
     private _radioService: RadioService
   ) {
     this.initializeApp();
@@ -39,6 +43,7 @@ class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
+      // this.login();
     });
   }
 
@@ -50,7 +55,21 @@ class MyApp {
     nav.setRoot(page.component);
   }
 
-  //getStats() {
-  //  this._radioService.getStats().then(stats => this.stats = stats);
-  //}
+  login() {
+
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    this.http.post('http://smoothtraxx-api.herokuapp.com/login', 'email=admin&password=admin', {
+          headers: headers
+        })
+        .map(res => res.text())
+        .subscribe(
+            data => console.log('Data:', data),
+            err => console.log('Err:', err),
+            () => console.log('Authentication Complete')
+        );
+  }
+  
+
 }
